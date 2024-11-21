@@ -1,11 +1,17 @@
 package ru.otus.cars
 
-import ru.otus.cars.Tank.Companion.FuelType
 
 object GazStation {
-    fun carRefuel(car: Car, fuelType: FuelType, fuelNumber: Int) {
+    fun carRefuelPropane(car: Car,  fuelNumber: Int) {
         try {
-            car.tank.TankMouth().addFuel(fuelNumber, fuelType)
+            car.tank.TankMouth().addFuel(fuelNumber, FuelType.PROPANE)
+        } catch (e: Exception) {
+            println("Упс... Мы бесплатно проведем очистку топливной системы")
+        }
+    }
+    fun carRefuelPetrol(car: Car,  fuelNumber: Int) {
+        try {
+            car.tank.TankMouth().addFuel(fuelNumber, FuelType.PETROL)
         } catch (e: Exception) {
             println("Упс... Мы бесплатно проведем очистку топливной системы")
         }

@@ -1,7 +1,6 @@
 package ru.otus.cars
 
 import kotlin.random.Random
-import ru.otus.cars.Tank.Companion.FuelType
 
 
 /**

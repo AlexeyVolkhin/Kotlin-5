@@ -1,6 +1,5 @@
 package ru.otus.cars
 
-import ru.otus.cars.Tank.Companion.FuelType
 
 fun main() {
     refuelCarsByStation()
@@ -17,14 +16,17 @@ fun refuelCars(isValidFuel: Boolean = true) {
 }
 
 
-fun refuelCarsByStation(isValidFuel: Boolean = true) {
+fun refuelCarsByStation() {
     val vaz1 = Vaz2107.build(Car.Plates("123", 77))
     val vaz2 = Vaz2108.build(Car.Plates("321", 78))
     vaz1.carOutput.getFuelValue()
     vaz2.carOutput.getFuelValue()
 
-    GazStation.carRefuel(vaz1, if (isValidFuel) FuelType.PROPANE else FuelType.PETROL, 15)
-    GazStation.carRefuel(vaz2, if (isValidFuel) FuelType.PETROL else FuelType.PROPANE, 15)
+    GazStation.carRefuelPropane(vaz1, 15)
+    GazStation.carRefuelPetrol(vaz1, 15)
+
+    GazStation.carRefuelPropane(vaz2, 15)
+    GazStation.carRefuelPetrol(vaz2, 15)
 
     vaz1.carOutput.getFuelValue()
     vaz2.carOutput.getFuelValue()

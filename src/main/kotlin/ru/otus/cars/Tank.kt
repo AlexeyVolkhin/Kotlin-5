@@ -3,9 +3,6 @@ package ru.otus.cars
 class Tank(val fuelType: FuelType) {
     var fuelValue = 0
 
-    companion object {
-        enum class FuelType { PETROL, PROPANE }
-    }
 
     inner class TankMouth() {
         fun addFuel(value: Int, type: FuelType) {

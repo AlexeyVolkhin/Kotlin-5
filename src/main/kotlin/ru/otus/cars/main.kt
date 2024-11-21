@@ -1,22 +1,35 @@
 package ru.otus.cars
 
+import ru.otus.cars.Tank.Companion.FuelType
+
 fun main() {
-    println("\n===> drive cars...")
-    driveCars()
-    println("\n===> inner test...")
-    innerNestedCheck()
-    println("\n===> garage make...")
-    garageMake()
-    println("\n===> model special...")
-    println("\n===> get equipment...")
-    getEquipment()
-    println("\n===> get color...")
-    getColor()
-    println("\n===> tech checks...")
-    techChecks()
-    println("\n===> Taz...")
-    println(Taz.color)
+    refuelCarsByStation()
+    refuelCars()
 }
+
+fun refuelCars(isValidFuel: Boolean = true) {
+    val vaz1 = Vaz2107.build(Car.Plates("123", 77))
+    val vaz2 = Vaz2108.build(Car.Plates("321", 78))
+    vaz1.tank.TankMouth().addFuel(10, if (isValidFuel) FuelType.PROPANE else FuelType.PETROL)
+    vaz2.tank.TankMouth().addFuel(10, if (isValidFuel) FuelType.PETROL else FuelType.PROPANE)
+    vaz1.carOutput.getFuelValue()
+    vaz2.carOutput.getFuelValue()
+}
+
+
+fun refuelCarsByStation(isValidFuel: Boolean = true) {
+    val vaz1 = Vaz2107.build(Car.Plates("123", 77))
+    val vaz2 = Vaz2108.build(Car.Plates("321", 78))
+    vaz1.carOutput.getFuelValue()
+    vaz2.carOutput.getFuelValue()
+
+    GazStation.carRefuel(vaz1, if (isValidFuel) FuelType.PROPANE else FuelType.PETROL, 15)
+    GazStation.carRefuel(vaz2, if (isValidFuel) FuelType.PETROL else FuelType.PROPANE, 15)
+
+    vaz1.carOutput.getFuelValue()
+    vaz2.carOutput.getFuelValue()
+}
+
 
 fun driveCars() {
     val vaz1 = Togliatti.buildCar(Vaz2107, Car.Plates("123", 77))

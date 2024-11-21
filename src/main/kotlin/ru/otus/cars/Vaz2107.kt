@@ -1,6 +1,8 @@
 package ru.otus.cars
 
 import kotlin.random.Random
+import ru.otus.cars.Tank.Companion.FuelType
+
 
 /**
  * Семёрочка
@@ -20,6 +22,7 @@ class Vaz2107 private constructor(color: String) : VazPlatform(color) {
         override fun build(plates: Car.Plates): Vaz2107 = Vaz2107("Зеленый").apply {
             this.engine = getRandomEngine()
             this.plates = plates
+            this.tank = Tank(FuelType.PROPANE)
         }
 
         /**
@@ -38,6 +41,9 @@ class Vaz2107 private constructor(color: String) : VazPlatform(color) {
 
     // Переопределяем свойство родителя
     override lateinit var engine: VazEngine
+        private set
+
+    override lateinit var tank: Tank
         private set
 
     /**
@@ -73,6 +79,12 @@ class Vaz2107 private constructor(color: String) : VazPlatform(color) {
     inner class VazOutput : CarOutput {
         override fun getCurrentSpeed(): Int {
             return this@Vaz2107.currentSpeed
+        }
+
+        override fun getFuelValue(): Int {
+            val value = this@Vaz2107.tank.fuelValue
+            println("Автомобиль $MODEL \n Уровень топлива в литрах: $value")
+            return value
         }
     }
 }

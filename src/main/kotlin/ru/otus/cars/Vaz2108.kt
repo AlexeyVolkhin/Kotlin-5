@@ -1,5 +1,6 @@
 package ru.otus.cars
 
+import ru.otus.cars.Vaz2107.Companion
 import kotlin.random.Random
 
 /**
@@ -86,6 +87,12 @@ class Vaz2108 private constructor(color: String) : VazPlatform(color) {
         override fun getFuelValue(): Int {
             val value = this@Vaz2108.tank.fuelValue
             println("Автомобиль $MODEL \n Уровень топлива в литрах: $value")
+            return value
+        }
+
+        override fun getFuelType(): FuelType {
+            val value = this@Vaz2108.tank.fuelType
+            println("Автомобиль ${Vaz2107.MODEL} \n Заправляется топливом: $value")
             return value
         }
     }

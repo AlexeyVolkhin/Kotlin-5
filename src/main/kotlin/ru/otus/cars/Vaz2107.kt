@@ -85,5 +85,11 @@ class Vaz2107 private constructor(color: String) : VazPlatform(color) {
             println("Автомобиль $MODEL \n Уровень топлива в литрах: $value")
             return value
         }
+
+        override fun getFuelType(): FuelType {
+            val value = this@Vaz2107.tank.fuelType
+            println("Автомобиль $MODEL \n Заправляется топливом: $value")
+            return value
+        }
     }
 }

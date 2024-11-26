@@ -22,11 +22,9 @@ fun refuelCarsByStation() {
     vaz1.carOutput.getFuelValue()
     vaz2.carOutput.getFuelValue()
 
-    GazStation.carRefuelPropane(vaz1, 15)
-    GazStation.carRefuelPetrol(vaz1, 15)
+    GazStation.carRefuel(vaz1, 15)
 
-    GazStation.carRefuelPropane(vaz2, 15)
-    GazStation.carRefuelPetrol(vaz2, 15)
+    GazStation.carRefuel(vaz2, 15)
 
     vaz1.carOutput.getFuelValue()
     vaz2.carOutput.getFuelValue()

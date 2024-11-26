@@ -10,4 +10,6 @@ interface CarOutput {
     fun getCurrentSpeed(): Int
 
     fun getFuelValue(): Int
+
+    fun getFuelType(): FuelType
 }
